@@ -38,7 +38,7 @@ const EducationSection = () => {
   }
 
   return (
-    <section className="colorlib-education" data-section="education">
+    <section className="colorlib-education" data-section="education" style={{ padding: '100px 0', background: '#f8f9fa', minHeight: '400px' }}>
       <div className="colorlib-narrow-content">
         <div className="row">
           <div className="col-md-6 offset-md-3 animate-box" data-animate-effect="fadeInLeft">
@@ -48,7 +48,7 @@ const EducationSection = () => {
         </div>
         <div className="row">
           <div className="col-md-12 animate-box" data-animate-effect="fadeInLeft">
-            <div className="fancy-collapse-panel">
+            <div className="fancy-collapse-panel" style={{ background: '#fff', borderRadius: '10px', boxShadow: '0 5px 15px rgba(0, 0, 0, 0.08)', overflow: 'hidden' }}>
               <div className="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                 {educationData.map((item, index) => (
                   <div key={item.id} className="panel panel-default">
@@ -56,6 +56,7 @@ const EducationSection = () => {
                       className={`panel-heading ${activePanel === item.id ? 'active' : ''}`}
                       role="tab"
                       id={`heading${index + 1}`}
+                      style={{ background: activePanel === item.id ? '#f9ca24' : '#fff', borderBottom: '1px solid #eee', padding: '0' }}
                     >
                       <h4 className="panel-title">
                         <a
@@ -64,41 +65,57 @@ const EducationSection = () => {
                           href="#"
                           aria-expanded={activePanel === item.id}
                           aria-controls={item.id}
+                          style={{ 
+                            display: 'block', 
+                            padding: '20px 30px', 
+                            color: activePanel === item.id ? 'white' : '#000', 
+                            textDecoration: 'none', 
+                            fontWeight: '600', 
+                            fontSize: '18px',
+                            transition: '0.3s',
+                            position: 'relative'
+                          }}
                         >
                           {item.title}
+                          <span style={{ position: 'absolute', right: '30px', top: '50%', transform: 'translateY(-50%)', fontSize: '20px' }}>
+                            {activePanel === item.id ? '−' : '+'}
+                          </span>
                         </a>
                       </h4>
                     </div>
-                    <div
-                      id={item.id}
-                      className={`panel-collapse collapse ${activePanel === item.id ? 'in' : ''}`}
-                      role="tabpanel"
-                      aria-labelledby={`heading${index + 1}`}
-                    >
-                      <div className="panel-body">
-                        {item.content.col2 ? (
-                          <div className="row">
-                            <div className="col-md-6">
+                    {activePanel === item.id && (
+                      <div
+                        id={item.id}
+                        className="panel-collapse collapse in"
+                        role="tabpanel"
+                        aria-labelledby={`heading${index + 1}`}
+                        style={{ display: 'block' }}
+                      >
+                        <div className="panel-body" style={{ padding: '30px', background: '#f8f9fa' }}>
+                          {item.content.col2 ? (
+                            <div className="row">
+                              <div className="col-md-6">
+                                <p>{item.content.col1}</p>
+                              </div>
+                              <div className="col-md-6">
+                                <p>{item.content.col2}</p>
+                              </div>
+                            </div>
+                          ) : (
+                            <>
                               <p>{item.content.col1}</p>
-                            </div>
-                            <div className="col-md-6">
-                              <p>{item.content.col2}</p>
-                            </div>
-                          </div>
-                        ) : (
-                          <>
-                            <p>{item.content.col1}</p>
-                            {item.content.list && (
-                              <ul>
-                                {item.content.list.map((listItem, listIndex) => (
-                                  <li key={listIndex}>{listItem}</li>
-                                ))}
-                              </ul>
-                            )}
-                          </>
-                        )}
+                              {item.content.list && (
+                                <ul>
+                                  {item.content.list.map((listItem, listIndex) => (
+                                    <li key={listIndex}>{listItem}</li>
+                                  ))}
+                                </ul>
+                              )}
+                            </>
+                          )}
+                        </div>
                       </div>
-                    </div>
+                    )}
                   </div>
                 ))}
               </div>
