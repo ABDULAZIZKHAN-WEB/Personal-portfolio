@@ -38,7 +38,7 @@ const EducationSection = () => {
   }
 
   return (
-    <section className="colorlib-education" data-section="education" style={{ padding: '100px 0', background: '#f8f9fa', minHeight: '400px' }}>
+    <section className="colorlib-education" data-section="education" style={{ padding: '100px 0', minHeight: '400px' }}>
       <div className="colorlib-narrow-content">
         <div className="row">
           <div className="col-md-6 offset-md-3 animate-box" data-animate-effect="fadeInLeft">

@@ -46,22 +46,22 @@ const ContactSection = () => {
     {
       icon: 'bi-geo-alt',
       title: 'Address',
-      content: '198 West 21th Street, Suite 721 New York NY 10016'
+      content: '66/E Noakhali Ln, West Raza Bazer, Indira Road, Dhaka 1215, Bangladesh.'
     },
     {
       icon: 'bi-telephone',
       title: 'Contact Number',
-      content: '+1 1234 55488 55'
+      content: '+8801907717145'
     },
     {
       icon: 'bi-envelope',
       title: 'Email Address',
-      content: 'info@yoursite.com'
+      content: 'abdulazizkhan.web@gmail.com'
     },
     {
       icon: 'bi-globe',
       title: 'Website',
-      content: 'yoursite.com'
+      content: 'abdulazizkhan.com'
     }
   ]
 
