@@ -24,7 +24,7 @@
 body {
   font-family: 'Poppins', sans-serif;
   line-height: 1.8;
-  color: #bcc41b;
+  color: #666;
   overflow-x: hidden;
 }
 
@@ -153,7 +153,7 @@ h6 {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #ffffff62;
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .colorlib-footer ul li a:hover {
@@ -162,28 +162,17 @@ h6 {
   transform: translateY(-3px);
   box-shadow: 0 5px 15px rgba(249, 202, 36, 0.4);
 }
-.small, small {
-    font-size: .8em;
-}
 
 /* Main Content */
 .main-content {
   margin-left: 300px;
   padding: 0;
-  min-height: 100vh;
-  overflow-y: auto;
 }
 
 /* Hero Section */
 #colorlib-hero {
   height: 100vh;
   position: relative;
-}
-
-/* Ensure sections are visible */
-section {
-  position: relative;
-  z-index: 1;
 }
 
 .flexslider {
@@ -771,7 +760,7 @@ section {
   bottom: -100px;
   left: 0;
   right: 0;
-  background: rgba(0, 0, 0, 0.8);
+  background: #a14747cc;
   color: white;
   padding: 20px;
   transition: 0.3s;
@@ -979,6 +968,14 @@ section {
     height: 70vh;
   }
 
+  .flexslider .slides li {
+    height: 70vh;
+  }
+
+  .slider-text {
+    height: 70vh;
+  }
+
   .slider-text h1 {
     font-size: 40px;
   }
@@ -1119,6 +1116,228 @@ section {
   color: white;
 }
 
+/* Work Section Image Placeholders */
+.project {
+  background: var(--gradient3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  position: relative;
+  overflow: hidden;
+}
+
+.project:before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: rotate(45deg);
+  transition: all 0.6s ease;
+}
+
+.project:hover:before {
+  animation: shimmer 1.5s ease-in-out;
+}
+
+.project[style*="background-image"] {
+  color: transparent;
+}
+
+/* Blog Section Image Placeholders */
+.blog-img {
+  background: var(--gradient4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  position: relative;
+  overflow: hidden;
+}
+
+.blog-img:before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: rotate(45deg);
+  transition: all 0.6s ease;
+}
+
+.blog-entry:hover .blog-img:before {
+  animation: shimmer 1.5s ease-in-out;
+}
+
+.blog-img[style*="background-image"] {
+  color: transparent;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+}
+
+/* Button enhancements */
+.btn-learn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn-learn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Loading animation for images */
+.author-img,
+.project,
+.blog-img {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Touch-friendly improvements */
+@media (max-width: 991.98px) {
+  #colorlib-main-menu ul li a {
+    padding: 12px 0;
+    font-size: 16px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  .colorlib-footer ul li a {
+    font-size: 24px;
+    padding: 10px;
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btn-primary,
+  .btn-learn {
+    padding: 15px 25px;
+    font-size: 16px;
+    min-height: 44px;
+  }
+}
+
+/* Print styles */
+@media print {
+
+  .colorlib-footer,
+  .btn {
+    display: none;
+  }
+}
+
+/* Prevent horizontal scroll on mobile */
+body {
+  overflow-x: hidden;
+}
+
+/* Improve touch targets */
+@media (max-width: 991.98px) {
+
+  .about-card,
+  .services,
+  .blog-entry {
+    margin-bottom: 20px;
+  }
+
+  .form-control {
+    padding: 15px;
+    font-size: 16px;
+    /* Prevents zoom on iOS */
+  }
+
+  /* Better spacing for mobile */
+  .colorlib-about,
+  .colorlib-services,
+  .colorlib-skills,
+  .colorlib-education,
+  .colorlib-experience,
+  .colorlib-work,
+  .colorlib-blog,
+  .colorlib-contact {
+    padding: 60px 0;
+  }
+
+  .colorlib-narrow-content {
+    padding: 0 20px;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --color1: #00ff00;
+    --color2: #ffff00;
+    --color3: #00cc00;
+    --color4: #009900;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .animate-box {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .btn,
+  .services,
+  .about-card {
+    transition: none;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color4);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color3);
+}
+
+/* Focus styles for accessibility */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus {
+  outline: 2px solid var(--color4);
+  outline-offset: 2px;
+}
+
 /* Loading states */
 .btn-loading {
   position: relative;
@@ -1145,26 +1364,130 @@ section {
   }
 }
 
-/* Slick slider customization */
-.slick-dots {
+/* FlexSlider Customization */
+.flex-control-nav {
   bottom: 30px;
 }
 
-.slick-dots li button:before {
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 12px;
+.flex-control-paging li a {
+  background: rgba(255, 255, 255, 0.5);
+  width: 12px;
+  height: 12px;
 }
 
-.slick-dots li.slick-active button:before {
-  color: var(--color4);
+.flex-control-paging li a.flex-active {
+  background: var(--color4);
 }
 
-/* Panel collapse styles */
-.panel-collapse.in {
-  display: block;
+/* Utility Classes */
+.text-highlight {
+  background: var(--gradient2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.panel-collapse {
-  display: none;
+.btn-custom {
+  background: var(--gradient3);
+  color: white;
+  border: none;
+  transition: all 0.3s ease;
+  border-radius: 25px;
+  padding: 12px 25px;
+  box-shadow: 0 5px 15px rgba(79, 172, 254, 0.3);
 }
 
+.btn-custom:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(79, 172, 254, 0.4);
+}
+
+.border-accent1 {
+  border-color: var(--color1) !important;
+}
+
+.border-accent2 {
+  border-color: var(--color2) !important;
+}
+
+.border-accent3 {
+  border-color: var(--color3) !important;
+}
+
+.border-accent4 {
+  border-color: var(--color4) !important;
+}
+
+/* Additional Eye-catching Effects */
+.glow-effect {
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+  }
+
+  to {
+    box-shadow: 0 0 20px rgba(255, 107, 107, 0.8), 0 0 30px rgba(255, 107, 107, 0.6);
+  }
+}
+
+.pulse-effect {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Gradient Text Effect */
+.gradient-text {
+  background: var(--gradient2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Modern Card Hover Effects */
+.modern-card {
+  background: white;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.modern-card:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient2);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.modern-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.modern-card:hover:before {
+  left: 0;
+  opacity: 0.1;
+}
