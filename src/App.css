@@ -12,6 +12,8 @@
   /* Purple */
   --color6: #fd79a8;
   /* Pink */
+  /* Comfortable site background (soft gray-blue to reduce glare) */
+  --site-bg: #d6dfed;
   --gradient1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   --gradient2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
   --gradient3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
@@ -172,6 +174,7 @@ h6 {
   padding: 0;
   min-height: 100vh;
   overflow-y: auto;
+  background: var(--site-bg); /* soft background for all content except the sidebar */
 }
 
 /* Hero Section */
@@ -268,13 +271,13 @@ section {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, );
+  background: rgba(0, 0, 0, 0.15);
 }
 
 /* About Section */
 .colorlib-about {
   padding: 100px 0;
-  background: #fff;
+  background: var(--site-bg);
 }
 
 .about-card {
@@ -354,7 +357,7 @@ section {
 /* Services Section */
 .colorlib-services {
   padding: 100px 0;
-  background: #f8f9fa;
+  background: var(--site-bg);
 }
 
 .colorlib-narrow-content {
@@ -505,7 +508,7 @@ section {
 /* Skills Section */
 .colorlib-skills {
   padding: 100px 0;
-  background: #fff;
+  background: var(--site-bg);
 }
 
 .progress-wrap {
@@ -568,7 +571,7 @@ section {
 /* Education Section */
 .colorlib-education {
   padding: 100px 0;
-  background: #f8f9fa;
+  background: var(--site-bg);
 }
 
 .fancy-collapse-panel {
@@ -626,13 +629,13 @@ section {
 
 .panel-body {
   padding: 30px;
-  background: #f8f9fa;
+  background: var(--site-bg);
 }
 
 /* Experience Section */
 .colorlib-experience {
   padding: 100px 0;
-  background: #fff;
+  background: var(--site-bg);
 }
 
 .timeline-centered {
@@ -729,7 +732,7 @@ section {
 /* Work Section */
 .colorlib-work {
   padding: 100px 0;
-  background: #f8f9fa;
+  background: var(--site-bg);
 }
 
 .work-menu {
@@ -812,7 +815,7 @@ section {
 /* Blog Section */
 .colorlib-blog {
   padding: 100px 0;
-  background: #fff;
+  background: var(--site-bg);
 }
 
 .blog-entry {
@@ -866,7 +869,7 @@ section {
 /* Contact Section */
 .colorlib-contact {
   padding: 100px 0;
-  background: #f8f9fa;
+  background: var(--site-bg);
 }
 
 .colorlib-feature {
